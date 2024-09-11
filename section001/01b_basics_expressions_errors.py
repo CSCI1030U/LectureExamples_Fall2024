@@ -32,3 +32,11 @@ a,b,c = 1,2,3
 print(f'{a = }')
 z = (a + b - c) / 3
 print(f'{z = }')
+
+# programming exercise
+num1 = int(input('Enter the first number:  '))
+num2 = int(input('Enter the second number: '))
+
+sum = num1 + num2 
+
+print(f'{sum % 5=}')
