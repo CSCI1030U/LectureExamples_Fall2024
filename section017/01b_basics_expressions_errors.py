@@ -42,4 +42,12 @@ x -= 1
 
 # runtime error
 y = 0
-z = x / y
+# z = x / y
+
+# programming exercise
+
+num1 = int(input('Enter the first number:  '))
+num2 = int(input('Enter the second number: '))
+
+sum = num1 + num2 
+print(f'{sum % 5 = }')
