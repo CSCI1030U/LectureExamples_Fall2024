@@ -30,3 +30,8 @@ if (a % 2) == 0:
 
 if (a % 2) == 0 and (b % 2) == 0:
     print('Both numbers are even.')
+
+# hacker's corner
+name1 = 'Barbara'
+name2 = 'Connie'
+print( name1 if len(name1) < len(name2) else name2 )
