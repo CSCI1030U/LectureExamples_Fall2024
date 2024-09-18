@@ -26,7 +26,7 @@ while x <= max:
     x = x * 2
 print(f'{x//2 = }')
 
-# exercise 1
+# exercise 02b.1
 import math
 # from math import factorial
 
@@ -39,3 +39,7 @@ for n in range(0, 1000, 1):
     estimate = estimate + term 
 
 print(f'{estimate = }')
+
+# hacker's corner
+for x in (n ** 2 for n in range(10)):
+    print(f'{x = }')

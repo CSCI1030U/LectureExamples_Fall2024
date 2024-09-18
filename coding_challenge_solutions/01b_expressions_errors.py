@@ -1,0 +1,5 @@
+midterm_mark = float(input('Midterm mark: '))
+lab_mark = float(input('Lab mark: '))
+final_mark = float(input('Final mark: '))
+mark = (midterm_mark / 80 * 30) + lab_mark + (final_mark / 180 * 40)
+print(f'Mark out of 100: {mark}')
