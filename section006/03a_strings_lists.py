@@ -31,3 +31,11 @@ for mark in midterm_marks:
     total += mark 
     count += 1
 print(f'{total / count = }')
+
+# hacker's corner
+
+def is_prime(x):
+    return True
+
+result = [x**2 for x in range(100) if is_prime(x)]
+print(f'{result = }')

@@ -31,3 +31,8 @@ for n in range(100):
     estimate += exponent / fact 
 
 print(f'{estimate = }')
+
+# hacker's corner
+
+for square in (x**2 for x in range(10)):
+    print(f'{square = }')
