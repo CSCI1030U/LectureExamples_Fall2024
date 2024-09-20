@@ -44,3 +44,14 @@ for mark in marks:
     sum += mark 
     length += 1
 print(f'{sum / length = }')
+
+# hacker's corner
+
+def is_prime(n):
+    for div in range(2, n):
+        if (n % div) == 0:
+            return False 
+    return True
+
+square_primes = [ x**2 for x in range(100) if is_prime(x) ]
+print(f'{square_primes = }')
