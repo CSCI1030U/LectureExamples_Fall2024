@@ -56,4 +56,14 @@ for mark in midterm_marks:
     count += 1
 print(f'{sum / count = }')
 
+# hacker's corner
+import math
 
+def is_prime(n):
+    for div in range(2, n):
+        if (n % div) == 0:
+            return False 
+    return True 
+
+sqrts_of_prime = [ math.sqrt(x) for x in range(1000) if is_prime(x) ]
+print(f'{sqrts_of_prime = }')
