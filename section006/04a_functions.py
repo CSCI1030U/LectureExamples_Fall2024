@@ -15,3 +15,13 @@ def get_class_average(marks):
 
 print(f'{get_class_average([1,2,3,4,5]) = }')
 print(f'{get_class_average(marks=[1,2,3,4,5]) = }')
+
+# hacker's corner
+
+def exp(x,y):
+    return x ** y
+
+two_fifty_six = (lambda x,y: x ** y)(2, 8)
+print(f'{two_fifty_six = }')
+print(f'{exp(2, 8) = }')
+
