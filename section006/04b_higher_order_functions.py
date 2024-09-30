@@ -75,3 +75,6 @@ def min2(a, b):
 project_scores = [30.0, 22.5, 27.0, 17.5, 22.0]
 minimum = reduce(min2, project_scores)
 print(f'{minimum = }')
+
+# filter
+

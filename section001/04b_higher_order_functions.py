@@ -67,3 +67,5 @@ print(f'{minimum = }')
 
 product = reduce(lambda a,b: a * b, marks)
 print(f'{product = }')
+
+# filter
