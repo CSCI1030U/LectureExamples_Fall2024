@@ -68,4 +68,40 @@ print(f'{minimum = }')
 product = reduce(lambda a,b: a * b, marks)
 print(f'{product = }')
 
+# coding exercise 1
+
+shopping_cart = [
+    {'item_price': 29.99, 'quantity': 3},
+    {'item_price': 99.99, 'quantity': 2},
+    {'item_price': 2.99, 'quantity': 30},
+    {'item_price': 7.99, 'quantity': 7},
+    {'item_price': 429.99, 'quantity': 1},
+]
+
+def get_item_cost(item):
+    return item['item_price'] * item['quantity']
+
+item_costs = map(get_item_cost, shopping_cart)
+# item_costs = map(lambda i: i['item_price'] * i['quantity'], shopping_cart)
+# print(f'{list(item_costs) = }')
+
+def add2(x, y):
+    return x + y
+
+subtotal = reduce(add2, item_costs)
+# subtotal = reduce(lambda x,y: x + y, item_costs)
+
+print(f'${subtotal:.2f}')
+
 # filter
+
+samples = [0.03, 0.1, 71.2, 12.0, 0.6]
+
+def is_dangerous_level(measurement):
+    if measurement > 2.0:
+        return True 
+    else:
+        return False
+
+dangerous_samples = filter(is_dangerous_level, samples)
+print(f'{list(dangerous_samples) = }')
