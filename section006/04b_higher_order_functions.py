@@ -76,5 +76,35 @@ project_scores = [30.0, 22.5, 27.0, 17.5, 22.0]
 minimum = reduce(min2, project_scores)
 print(f'{minimum = }')
 
+# coding exercise 1
+
+shopping_cart = [
+    {'item_price': 19.99, 'quantity': 3},
+    {'item_price': 2.99, 'quantity': 20},
+    {'item_price': 9.99, 'quantity': 9},
+    {'item_price': 29.99, 'quantity': 7},
+    {'item_price': 199.99, 'quantity': 1},
+]
+
+def get_item_cost(item):
+    return item['item_price'] * item['quantity']
+
+item_costs = map(get_item_cost, shopping_cart)
+# print(f'{list(item_costs) = }')
+
+def add2(a, b):
+    return a + b
+
+subtotal = reduce(add2, item_costs)
+print(f'${subtotal:.2f}')
+
 # filter
 
+def is_prime(n):
+    for div in range(2, n):
+        if (n % div) == 0:
+            return False 
+    return True 
+
+primes = filter(is_prime, range(1, 100))
+print(f'{list(primes) = }')
