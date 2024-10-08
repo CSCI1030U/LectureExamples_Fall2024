@@ -1,22 +1,22 @@
 class Student:
     def __init__(self, first_name, last_name, sid):
-        self._first_name = first_name 
-        self._last_name = last_name 
-        self._sid = sid 
-        self._grades = []
-        self._courses = []
+        self.__first_name = first_name 
+        self.__last_name = last_name 
+        self.__sid = sid 
+        self.__grades = []
+        self.__courses = []
 
     def assign_grade(self, new_grade):
-        self._grades.append(new_grade)
+        self.__grades.append(new_grade)
 
     def get_grades(self):
-        return self._grades
+        return self.__grades
 
     def get_sid(self):
-        return self._sid
+        return self.__sid
     
     def __str__(self):
-        return f'{self._first_name} {self._last_name} ({self._sid})'
+        return f'{self.__first_name} {self.__last_name} ({self.__sid})'
 
 barb = Student('Barb', 'Jones', '12345')
 print(f'{barb._first_name = }') # not recommended
@@ -32,10 +32,22 @@ class Dog:
         self.__name = name 
         self.__mass = mass 
     
-    def __str__(self):
-        return f'{self.__name} ({self.__mass})'
+    def __repr__(self):
+        return f'{self.__name} ({self.__mass} kg)'
 
     # less than
-        
+    def __lt__(self, other_dog):
+        # if self.__mass < other_dog.__mass:
+        #     return True
+        # else:
+        #     return False
+        return self.__mass < other_dog.__mass
+    
+
 rufus = Dog('Rufus', 2.0)
+spike = Dog('Spike', 5.0)
+
+print(f'{rufus = }')
 print(f'{str(rufus) = }')
+print(f'{rufus < spike = }')
+print(f'{spike < rufus = }')
