@@ -25,3 +25,24 @@ ahmed.add_grade('A+')
 ahmed.add_grade('A+')
 print(f'{keri > ahmed = }')
 
+# coding exercise 1
+class Dog:
+    def __init__(self, name, mass):
+        self.__name = name
+        self.__mass = mass 
+    
+    def __repr__(self):
+        return f'Dog: {self.__name} ({self.__mass} kg)'
+    
+    def __lt__(self, other):
+        # if self.__mass < other.__mass:
+        #     return True 
+        # else:
+        #     return False 
+        return self.__mass < other.__mass
+    
+rufus = Dog('Rufus', 3.5)
+lady = Dog('Lady', 1.0)
+print(f'{rufus = }')
+print(f'{lady < rufus = }')
+print(f'{rufus < lady = }')
