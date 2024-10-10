@@ -42,7 +42,19 @@ class Dog:
         return f'{self.__name} ({self.__mass} kg)'
 
     # implement the < operator
+    def __lt__(self, other):
+        # if self.__mass < other.__mass:
+        #     return True 
+        # else:
+        #     return False 
+        return self.__mass < other.__mass
 
 
 rufus = Dog('Rufus', 1.5)
 print(f'{rufus = }')
+
+fifi = Dog('Fifi', 1.0)
+print(f'{fifi = }')
+
+print(f'{fifi < rufus = }')
+print(f'{rufus < fifi = }')

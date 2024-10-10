@@ -54,3 +54,29 @@ pets = [
 
 for pet in pets:
     pet.speak()
+
+# coding exercise 2
+
+class Product:
+    def __init__(self, price, description):
+        self._price = price 
+        self._description = description
+
+    def __repr__(self):
+        return f'Product: {self._description} (${self._price})'
+
+class Shoe(Product):
+    def __init__(self, price, description, brand, size, colour):
+        super().__init__(price, description)
+        self._brand = brand 
+        self._size = size 
+        self._colour = colour
+
+    def __repr__(self):
+        return f'Shoe: {self._description} (${self._price}, size: {self._size})'
+
+product = Product(19.99, 'Brown belt')
+print(f'{product = }')
+shoe = Shoe(199.99, 'Air Jordan 1989', 'Nike', 11, 'White')
+print(f'{shoe = }')
+print(f'{shoe._brand}')
