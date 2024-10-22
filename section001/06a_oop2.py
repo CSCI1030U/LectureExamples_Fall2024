@@ -34,8 +34,22 @@ class Product:
         self._price = price 
         self._description = description 
     
+    def __repr__(self):
+        return f'Product: {self._description} (${self._price})'
+    
 
 class Shoe(Product):
     def __init__(self, price, description, brand, size, colour):
         super().__init__(price, description)
-        # TODO:  finish this next time 
+        self._brand = brand 
+        self._size = size
+        self._colour = colour 
+
+    def __repr__(self):
+        return f'Shoe: {self._description} (${self._price}, size: {self._size})'
+
+belt = Product(39.99, 'Brown belt')
+print(f'{belt = }')
+jordans = Shoe(699.99, '1989 Air Jordans', 'Nike', 11, 'White')
+print(f'{jordans = }')
+
