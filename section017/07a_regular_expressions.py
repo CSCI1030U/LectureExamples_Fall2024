@@ -40,6 +40,7 @@ import re
 variable_regex = r'[a-zA-Z_]\w*'
 variable_fsm = re.compile(variable_regex) # regex -> fsm
 print(f'{variable_fsm.match('avg_midterm_mark = 68.25') = }')
+print(f'{variable_fsm.match('avg_midterm2_mark = 68.25') = }')
 print(f'{variable_fsm.search('1_year_later = 100.0') = }')
 variable_result = variable_fsm.search('max_age > 21:')
 if variable_result:
@@ -51,4 +52,4 @@ phone_regex = r'(1-)?[0-9]{3}-[0-9]{3}-[0-9]{4}'
 phone_fsm = re.compile(phone_regex)
 print(f'{phone_fsm.match("905-721-8668") = }')
 print(f'{phone_fsm.match("1-905-721-8668") = }')
-print(f'{phone_fsm.match("9057218668") = }')
+print(f'{phone_fsm.search("9057218668") = }')

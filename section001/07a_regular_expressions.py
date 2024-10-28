@@ -34,5 +34,27 @@ print(f'{variable_fsm.match("avg_price2") = }')
 print(f'{variable_fsm.match("max_cost=") = }')
 print(f'{variable_fsm.match("2num_sum") = }')
 print(f'{variable_fsm.search(" avg_price < 18.0:") = }')
+print(f'{variable_fsm.findall("avg_price max_value midterm_avg") = }')
 
-even_num_binary = '([01]{2})*'
+sentence = 'the quick, brown, fox; jumped over - the lazy dog.'
+separator = re.compile(r'[,;\-.:!? ]+')
+words = re.split(separator, sentence)
+print(f'{words = }')
+
+even_num_binary_regex = '([01]{2})*'
+even_num_binary_fsm = re.compile(even_num_binary_regex)
+if even_num_binary_fsm.match('001101'):
+    print(f'It is a match')
+
+# coding exercise 
+
+# eight_or_sixteen_regex = '[01]{8}|[01]{16}'
+eight_or_sixteen_regex = '^[01]{8}([01]{8})?$' # exact match with ^ and $
+# eight_or_sixteen_regex = '[01]{8,16}' # incorrect
+eight_or_sixteen_fsm = re.compile(eight_or_sixteen_regex)
+print(f'{eight_or_sixteen_fsm.search("00111010") = }')
+print(f'{eight_or_sixteen_fsm.search("0011101011110000") = }')
+print(f'{eight_or_sixteen_fsm.search("001110101100") = }') # no
+print(f'{eight_or_sixteen_fsm.search("My number is 01011010") = }') # no
+print(f'{eight_or_sixteen_fsm.search("01011010 is the best!") = }') # no
+
