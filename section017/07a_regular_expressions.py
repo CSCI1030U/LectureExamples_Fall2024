@@ -53,3 +53,14 @@ phone_fsm = re.compile(phone_regex)
 print(f'{phone_fsm.match("905-721-8668") = }')
 print(f'{phone_fsm.match("1-905-721-8668") = }')
 print(f'{phone_fsm.search("9057218668") = }')
+
+# coding exercise 1
+
+# binary_num_regex = '[01]{8}|[01]{16}'
+binary_num_regex = '^[01]{8}([01]{8})?$' # ^ - start of string, $ - end of string
+binary_num_fsm = re.compile(binary_num_regex)
+print(f'{binary_num_fsm.search("1010010111000011") = }')
+print(f'{binary_num_fsm.search("11000011") = }')
+print(f'{binary_num_fsm.search("010111000011") = }')
+print(f'{binary_num_fsm.search("binary: 1010010111000011") = }')
+print(f'{binary_num_fsm.search("11000011 is the number") = }')
