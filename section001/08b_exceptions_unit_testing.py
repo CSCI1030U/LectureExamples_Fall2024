@@ -37,3 +37,10 @@ def print_reciprocals(values):
             print('Cannot calculate 1/0')
 
 print_reciprocals([5,4,3,2,1,0])
+
+shopping_cart = [
+    {'product-id': 17723, 'quantity': 10},
+    {'product-id': 53682, 'quantity': 1},
+    {'product-id': 32704, 'quantity': 1},
+    {'product-id': 8110, 'quantity': 2},
+]
