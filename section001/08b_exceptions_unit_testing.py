@@ -44,3 +44,56 @@ shopping_cart = [
     {'product-id': 32704, 'quantity': 1},
     {'product-id': 8110, 'quantity': 2},
 ]
+
+def search(values, to_find):
+    for val in values:
+        if val == to_find:
+            return True 
+    return False
+
+import unittest 
+
+class Search_Test(unittest.TestCase):
+    def test_search(self):
+        self.assertEqual(search([1,2,3,4,5], 3), True)
+        self.assertTrue(search([1,2,3,4,5], 5))
+        self.assertTrue(search([1,2,3,4,5], 1))
+        self.assertFalse(search([1,2,3,4,5], 6))
+        self.assertFalse(search([], 5))
+
+class Student:
+    def __init__(self, gpa, name):
+        self.gpa = gpa
+        self.name = name
+        self.marks = []
+
+    def set_mark(self, course, mark):
+        self.marks.append(mark)
+
+    def get_average(self):
+        sum = 0
+        for mark in self.marks:
+            sum += mark
+        return sum / len(self.marks)
+
+class Student_Test(unittest.TestCase):
+    def test_init(self):
+        clarissa = Student(0.123, 'Clarissa')
+        self.assertEqual(clarissa.gpa, 0.123)
+        self.assertEqual(clarissa.name, 'Clarissa')
+
+    def test_set_mark(self):
+        clarissa = Student(0.123, 'Clarissa')
+        clarissa.set_mark('CSCI1030U', 70.0)
+        self.assertEqual(clarissa.marks, [70.0])
+        clarissa.set_mark('MATH1010U', 50.0)
+        self.assertEqual(clarissa.marks, [70.0, 50.0])
+
+    def test_get_average(self):
+        clarissa = Student(0.123, 'Clarissa')
+        clarissa.set_mark('CSCI1030U', 70.0)
+        clarissa.set_mark('MATH1010U', 50.0)
+        self.assertAlmostEqual(clarissa.get_average(), 60.0, 0.0000001)
+
+unittest.main()
+
