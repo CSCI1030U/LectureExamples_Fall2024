@@ -54,3 +54,78 @@ def print_reciprocals(values):
             print('Cannot calculate 1/0.')
 
 print_reciprocals([0,1,2,3,4,5])
+
+def is_prime(n):
+    for div in range(2,n):
+        if (n % div) == 0:
+            return False 
+    return True
+
+import unittest 
+
+class IsPrime_Test(unittest.TestCase):
+    def test_is_prime(self):
+        self.assertEqual(is_prime(2), True)
+        self.assertTrue(is_prime(3))
+        self.assertTrue(is_prime(7))
+        self.assertTrue(is_prime(11))
+        self.assertTrue(is_prime(13))
+        self.assertFalse(is_prime(4))
+        self.assertFalse(is_prime(9))
+        self.assertTrue(is_prime(17))
+
+# coding exercise 2
+
+class NoMarksError(Exception):
+    pass
+
+class Student:
+    def __init__(self, gpa, name):
+        self.gpa = gpa
+        self.name = name
+        self.marks = []
+
+    def set_mark(self, course, mark):
+        self.marks.append(mark)
+
+    def get_average(self):
+        if len(self.marks) == 0:
+            raise NoMarksError('You cannot calculate an average of zero elements')
+        
+        sum = 0
+        for mark in self.marks:
+            sum += mark
+        return sum / len(self.marks)
+
+class Student_Test(unittest.TestCase):
+    def test_init(self):
+        clarissa = Student(0.123, 'Clarissa')
+        self.assertEqual(clarissa.gpa, 0.123)
+        self.assertEqual(clarissa.name, 'Clarissa')
+
+    def test_set_mark(self):
+        clarissa = Student(0.123, 'Clarissa')
+        clarissa.set_mark('CSCI1030U', 70.0)
+        self.assertEqual(clarissa.marks, [70.0]) 
+        clarissa.set_mark('MATH1010U', 50.0)
+        self.assertEqual(clarissa.marks, [70.0, 50.0])
+
+    def test_get_average(self):
+        clarissa = Student(0.0, 'Clarissa')
+        # self.assertRaises(clarissa.get_average(), NoMarksError)
+        clarissa.set_mark('CSCI1030U', 70.0)
+        self.assertAlmostEqual(clarissa.get_average(), 70.0, 0.0000001)
+        clarissa.set_mark('MATH1010U', 50.0)
+        self.assertAlmostEqual(clarissa.get_average(), 60.0, 0.0000001)
+
+
+unittest.main()
+
+'''
+Test cases for sort():
+
+[4,1,5,2,3] -> [1,2,3,4,5]
+[3,-1,2,-4,5] -> [-4,-1,2,3,5]
+[7] -> [7]
+[] -> []
+'''
