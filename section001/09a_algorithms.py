@@ -32,3 +32,21 @@ values = [3,5,1,4,2]
 print(f'before sort: {values = }')
 mirror_insert_sort(values)
 print(f'after sort: {values = }')
+
+# coding exercise 1
+
+def sequential_search(values, to_find):
+    num_operations = 0
+    for i in range(len(values)):
+        num_operations += 1
+        if values[i] == to_find:
+            return num_operations, True
+    return num_operations, False
+
+for n in [10, 100, 1000, 10000]:
+    num_ops, result = sequential_search(range(n), -1)
+    print(f'{n}:{num_ops}')
+
+for n in range(1000, 10001, 1000):
+    num_ops, result = sequential_search(range(n), -1)
+    print(f"{n:08d}:{'*' * (num_ops//500)}")
