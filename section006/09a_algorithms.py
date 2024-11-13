@@ -51,4 +51,4 @@ def sequential_search(values, to_find):
 
 for n in range(100, 10000, 1000):
     ops, result = sequential_search(range(n), -1)
-    print(f'{n}:{'*' * (ops//1000)}')
+    print(f'{n:08d}:{'*' * (ops//1000)}')
