@@ -46,6 +46,8 @@ class BinarySearchTree:
         6
     5
         2
+
+[10,5,15,2,6,12,21]
 '''
 
 bst1 = BinarySearchTree() # empty
