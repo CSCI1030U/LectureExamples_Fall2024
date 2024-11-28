@@ -21,14 +21,6 @@
 
 - array representation:
 [6, 2, 11, 1, 5, 9, 15]
-
-        15
-    11
-        9
-6
-        5
-    2
-        1
 '''
 
 class BinarySearchTree:
@@ -47,6 +39,7 @@ class BinarySearchTree:
     def _is_valid_index(self, index):
         return (index >= 0) and (index < len(self.values))
     
+    # BST specific
     def search(self, to_find, current = 0):
         if not self._is_valid_index(current):
             return False 
@@ -60,18 +53,28 @@ class BinarySearchTree:
             right_child = self._right_child(current)
             return self.search(to_find, right_child)
     
-    def print(self, current = 0, depth = 0):
+    '''
+        15
+    11
+        9
+6
+        5
+    2
+        1
+    '''
+    def display(self, current = 0, depth = 0):
         # check if this is a valid index
         if not self._is_valid_index(current):
             return
 
         # print right sub-tree, recursively
+        self.display(self._right_child(current), depth + 1)
 
         # print current node, at the proper indentation
         print('\t' * depth + str(self.values[current]))
 
         # print left sub-tree, recursively
-
+        self.display(self._left_child(current), depth + 1)
 
 
 bst_empty = BinarySearchTree()
@@ -81,3 +84,4 @@ print(f'{bst_nonempty.search(11) = }')
 print(f'{bst_nonempty.search(5) = }')
 print(f'{bst_nonempty.search(12) = }')
 print(f'{bst_nonempty.search(0) = }')
+bst_nonempty.display()
