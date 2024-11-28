@@ -42,6 +42,27 @@ class BinarySearchTree:
             right_index = self._right_child_index(current)
             return self.search(to_find, current = right_index)
 
+    '''
+        36
+    24
+        19
+11
+        7
+    6
+        1
+    '''
+    def display(self, current = 0, depth = 0):
+        if not self._is_valid_index(current):
+            return
+        
+        # print right sub-tree
+        self.display(self._right_child_index(current), depth + 1)
+
+        # print the node itself
+        print('\t' * depth + str(self.values[current]))
+
+        # print the left sub-tree
+        self.display(self._left_child_index(current), depth + 1)
 
 empty_bst = BinarySearchTree()
 
@@ -51,3 +72,4 @@ print(f'{init_bst.search(7) = }')
 print(f'{init_bst.search(36) = }')
 print(f'{init_bst.search(2) = }')
 print(f'{init_bst.search(100) = }')
+init_bst.display()
