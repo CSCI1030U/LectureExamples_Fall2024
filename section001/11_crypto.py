@@ -23,3 +23,19 @@ for shift_amount in range(1, 26):
     for letter in ciphertext:
         plaintext += shift(letter, shift_amount)
     print(plaintext)
+
+def vigenere(plaintext, key, decrypt=False):
+    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+    # duplicate the key so that its length >= length of plaintext
+    key += key * (len(plaintext) // len(key))
+
+    # go char by char and shift by corresponding key char
+    ciphertext = ''
+    for i in range(len(plaintext)):
+        shift_amount = alphabet.index(key[i]) + 1
+        ciphertext += shift(plaintext[i], shift_amount, decrypt)
+    return ciphertext
+
+print(f'{vigenere('SANDWICHESAREGOOD', 'TOMATO') = }')
+print(f'{vigenere('MPAEQXWWRTUGYVBPX', 'TOMATO', decrypt=True)}')
